@@ -117,6 +117,29 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
+        if (0 === strpos($pathinfo, '/portfolio')) {
+            // portfolio_list
+            if ('/portfolio' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\PortfolioController::listAction',  '_route' => 'portfolio_list',);
+            }
+
+            // portfolio_create
+            if ('/portfolio/create' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\PortfolioController::createAction',  '_route' => 'portfolio_create',);
+            }
+
+            // portfolio_edit
+            if (0 === strpos($pathinfo, '/portfolio/edit') && preg_match('#^/portfolio/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_edit')), array (  '_controller' => 'AppBundle\\Controller\\PortfolioController::editAction',));
+            }
+
+            // portfolio_details
+            if (0 === strpos($pathinfo, '/portfolio/details') && preg_match('#^/portfolio/details/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_details')), array (  '_controller' => 'AppBundle\\Controller\\PortfolioController::detailsAction',));
+            }
+
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

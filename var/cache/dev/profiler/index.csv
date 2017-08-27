@@ -1,3 +1,7 @@
 73d310,127.0.0.1,GET,http://portfoliomanager/,1503615536,,200
 5c8838,127.0.0.1,GET,http://portfoliomanager/favicon.ico,1503615538,d9af93,200
 d9af93,127.0.0.1,GET,http://portfoliomanager/favicon.ico,1503615538,,404
+01cae1,127.0.0.1,GET,http://portfoliomanager/portfolio/edit,1503620227,9dee5e,200
+9dee5e,127.0.0.1,GET,http://portfoliomanager/portfolio/edit,1503620227,,404
+8cb7c7,127.0.0.1,GET,http://portfoliomanager/portfolio/create,1503620287,,200
+bf9a70,127.0.0.1,GET,http://portfoliomanager/,1503621381,,200
